@@ -21,6 +21,15 @@ axios.get("https://api.github.com/users/brennuck")
            create a new component and add it to the DOM as a child of .cards
 */
 
+let cards = document.querySelector('.cards');
+axios.get('https://api.github.com/users/brennuck')
+.then(response => {
+  cards.append(userCard(response));
+})
+.catch(error => {
+  console.log(error);
+})
+
 /* Step 5: Now that you have your own card getting added to the DOM, either 
           follow this link in your browser https://api.github.com/users/<Your github name>/followers 
           , manually find some other users' github handles, or use the list found 
